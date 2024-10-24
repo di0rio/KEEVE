@@ -42,9 +42,54 @@ namespace ApiKeeve.Controllers
             return aluguel;
         }
 
-        // PUT: api/Alugueis/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("InicioAluguel/{inicioAluguel}")]
+		public async Task<ActionResult<IEnumerable<Aluguel>>> GetAluguelByInicio(DateTime inicioAluguel)
+		{
+			var alugueis = await _context.Aluguel
+				.Where(a => a.InicioAluguel.Date == inicioAluguel.Date) // Comparação apenas da data (ignorando hora)
+				.ToListAsync();
+
+			if (!alugueis.Any())
+			{
+				return NotFound("Nenhum aluguel encontrado para a data especificada.");
+			}
+
+			return alugueis;
+		}
+
+		[HttpGet("FimAluguel/{fimAluguel}")]
+		public async Task<ActionResult<IEnumerable<Aluguel>>> GetAluguelByFim(DateTime fimAluguel)
+		{
+			var alugueis = await _context.Aluguel
+				.Where(a => a.FimAluguel.Date == fimAluguel.Date) // Comparação apenas por data
+				.ToListAsync();
+
+			if (!alugueis.Any())
+			{
+				return NotFound("Nenhum aluguel encontrado com essa data de término.");
+			}
+
+			return alugueis;
+		}
+
+
+		[HttpGet("Localizacao/{localizacao}")]
+		public async Task<ActionResult<Aluguel>> GetClienteByName(string localizacao)
+		{
+			var aluguel = await _context.Aluguel.FirstOrDefaultAsync(c => c.Localizacao == localizacao);
+
+			if (aluguel == null)
+			{
+				return NotFound("");
+			}
+
+			return aluguel;
+		}
+
+
+		// PUT: api/Alugueis/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutAluguel(Guid id, Aluguel aluguel)
         {
             if (id != aluguel.AluguelId)

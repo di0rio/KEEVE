@@ -42,9 +42,35 @@ namespace ApiKeeve.Controllers
             return patio;
         }
 
-        // PUT: api/Patios/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("Nome/{nome}")]
+		public async Task<ActionResult<Patio>> GetPatioByName(string nome)
+		{
+			var patio = await _context.Patio.FirstOrDefaultAsync(c => c.Nome == nome);
+
+			if (patio == null)
+			{
+				return NotFound("Não há patios registrados!");
+			}
+
+			return patio;
+		}
+
+		[HttpGet("Capacidade/{capacidade}")]
+		public async Task<ActionResult<Patio>> GetPatioByCapacidade(int cap)
+		{
+			var patio = await _context.Patio.FirstOrDefaultAsync(c => c.Capacidade == cap);
+
+			if (patio == null)
+			{
+				return NotFound();
+			}
+
+			return patio;
+		}
+
+		// PUT: api/Patios/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutPatio(Guid id, Patio patio)
         {
             if (id != patio.PatioId)
