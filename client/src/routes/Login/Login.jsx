@@ -4,7 +4,6 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import logo from "../../assets/logo.png";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [profilePic, setProfilePic] = useState("");
