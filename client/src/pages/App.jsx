@@ -7,6 +7,10 @@ import Login from "../routes/Login/Login.jsx";
 import Home from "../routes/Home/Home.jsx";
 import Cadastro from "../routes/Cadastro/Cadastro.jsx";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.js";
+import "bootstrap/dist/js/bootstrap.js";
+
 const App = () => {
   return (
     <BrowserRouter>
