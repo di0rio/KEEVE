@@ -1,0 +1,6 @@
+@ApiKeeve_HostAddress = http://localhost:5249
+
+GET {{ApiKeeve_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

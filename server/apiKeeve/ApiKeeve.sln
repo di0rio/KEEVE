@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiKeeve", "ApiKeeve\ApiKeeve.csproj", "{7D010EDB-7AB3-4EF2-B183-9C64E411B278}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D010EDB-7AB3-4EF2-B183-9C64E411B278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D010EDB-7AB3-4EF2-B183-9C64E411B278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D010EDB-7AB3-4EF2-B183-9C64E411B278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D010EDB-7AB3-4EF2-B183-9C64E411B278}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6514DA2-DB82-4EC0-A0AE-960A11D67835}
+	EndGlobalSection
+EndGlobal
