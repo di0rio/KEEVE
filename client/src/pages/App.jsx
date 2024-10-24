@@ -1,22 +1,21 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "../routes/Login/Login.jsx";
 import Home from "../routes/Home/Home.jsx";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.js";
-import "bootstrap/dist/js/bootstrap.js";
+import Cadastro from "../routes/Cadastro/Cadastro.jsx";
 
 const App = () => {
   return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
