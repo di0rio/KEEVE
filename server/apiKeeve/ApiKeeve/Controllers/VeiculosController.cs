@@ -42,9 +42,89 @@ namespace ApiKeeve.Controllers
             return veiculo;
         }
 
-        // PUT: api/Veiculos/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("Nome/{nome}")]
+		public async Task<ActionResult<Veiculo>> GetVeiculoByNome(string nome)
+		{
+			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Nome == nome);
+
+			if (veiculo == null)
+			{
+				return NotFound();
+			}
+
+			return veiculo;
+		}
+
+		[HttpGet("Modelo/{modelo}")]
+		public async Task<ActionResult<Veiculo>> GetVeiculoByModelo(string modelo)
+		{
+			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Modelo == modelo);
+
+			if (veiculo == null)
+			{
+				return NotFound();
+			}
+
+			return veiculo;
+		}
+
+		[HttpGet("Trasmissão/{trans}")]
+		public async Task<ActionResult<Veiculo>> GetVeiculoByTrasmissão(string trans)
+		{
+			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Trasmissão == trans);
+
+			if (veiculo == null)
+			{
+				return NotFound();
+			}
+
+			return veiculo;
+		}
+
+		[HttpGet("Portas/{portas}")]
+		public async Task<ActionResult<Veiculo>> GetVeiculoByPortas(string portas)
+		{
+			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Portas == portas);
+
+			if (veiculo == null)
+			{
+				return NotFound();
+			}
+
+			return veiculo;
+		}
+
+		[HttpGet("Capacidade/{cap}")]
+		public async Task<ActionResult<Veiculo>> GetVeiculoByCapacidade(decimal cap)
+		{
+			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Capacidade == cap);
+
+			if (veiculo == null)
+			{
+				return NotFound();
+			}
+
+			return veiculo;
+		}
+
+		[HttpGet("Preco/{preco}")]
+		public async Task<ActionResult<Veiculo>> GetVeiculoByPreco(decimal preco)
+		{
+			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Preco == preco);
+
+			if (veiculo == null)
+			{
+				return NotFound();
+			}
+
+			return veiculo;
+		}
+
+
+
+		// PUT: api/Veiculos/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutVeiculo(Guid id, Veiculo veiculo)
         {
             if (id != veiculo.VeiculoId)

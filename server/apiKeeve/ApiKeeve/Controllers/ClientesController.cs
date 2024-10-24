@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApiKeeve.Data;
 using ApiKeeve.Models;
+using System.Numerics;
 
 namespace ApiKeeve.Controllers
 {
@@ -42,9 +43,35 @@ namespace ApiKeeve.Controllers
             return cliente;
         }
 
-        // PUT: api/Clientes/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("Nome/{nome}")]
+		public async Task<ActionResult<Cliente>> GetClienteByName(string nome)
+		{
+			var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Nome == nome);
+
+			if (cliente == null)
+			{
+				return NotFound("Não há clientes registrados!");
+			}
+
+			return cliente;
+		}
+
+		[HttpGet("Email/{email}")]
+		public async Task<ActionResult<Cliente>> GetClienteByEmail(string email)
+		{
+			var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Email == email);
+
+			if (cliente == null)
+			{
+				return NotFound("Não há e-mails registrados!");
+			}
+
+			return cliente;
+		}
+
+		// PUT: api/Clientes/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutCliente(Guid id, Cliente cliente)
         {
             if (id != cliente.ClienteId)
