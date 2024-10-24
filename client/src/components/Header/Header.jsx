@@ -21,7 +21,7 @@ const Header = () => {
       <div>
         <Link to="/login">
           <button className={styles.BtnLogin}>
-            <ion-icon name="person-circle-outline"></ion-icon>
+            <ion-icon name="person-outline"></ion-icon>
             Entrar
           </button>
         </Link>
