@@ -18,7 +18,7 @@ const ModalCarros = ({ isOpen, onClose }) => {
     <Dialog.Root className={styles.formContainer} open={isOpen} onOpenChange={onClose}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg p-6 w-[80vw] max-h-[80vh] overflow-y-auto">
+        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 w-[80vw] max-h-[80vh] overflow-y-auto">
           <Dialog.Title className="text-2xl font-bold mb-4">
             Escolha um Carro
           </Dialog.Title>
