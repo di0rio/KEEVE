@@ -1,92 +1,38 @@
 # React + Vite
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keeve - Aluguel de Carros</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Keeve</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Sobre Nós</a></li>
-        <li><a href="#">Serviços</a></li>
-        <li><a href="#">Fale Conosco</a></li>
-      </ul>
-    </nav>
-  </header>
+## Keeve: Sua experiência de aluguel de carros começa aqui!
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h2>Aluguel de Carros Simples e Seguro</h2>
-        <p>Encontre o carro perfeito para sua próxima aventura.</p>
-        <button>Reserve Agora</button>
-      </div>
-    </section>
+**Keeve** é uma plataforma inovadora de aluguel de carros que simplifica a sua experiência, oferecendo uma interface amigável e soluções completas para suas necessidades.
 
-    <section class="features">
-      <div class="container">
-        <h2>Por que escolher Keeve?</h2>
-        <div class="feature-list">
-          <div class="feature">
-            <img src="icone-carro.png" alt="Ícone de Carro">
-            <h3>Variedade de Veículos</h3>
-            <p>Encontre o carro ideal para suas necessidades.</p>
-          </div>
-          <div class="feature">
-            <img src="icone-preco.png" alt="Ícone de Preço">
-            <h3>Preços Competitivos</h3>
-            <p>Preços justos e transparentes, sem taxas ocultas.</p>
-          </div>
-          <div class="feature">
-            <img src="icone-reserva.png" alt="Ícone de Reserva">
-            <h3>Reserva Simples</h3>
-            <p>Reserve online em poucos cliques.</p>
-          </div>
-          <div class="feature">
-            <img src="icone-atendimento.png" alt="Ícone de Atendimento">
-            <h3>Atendimento Personalizado</h3>
-            <p>Nossa equipe está pronta para ajudar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+**Por que escolher Keeve?**
 
-    <section class="about">
-      <div class="container">
-        <h2>Sobre a Keeve</h2>
-        <p>Somos apaixonados por oferecer uma experiência de aluguel de carros fácil e segura. Conheça nossa história e valores.</p>
-        <button>Saiba Mais</button>
-      </div>
-    </section>
+* **Facilidade:** Encontre o carro ideal em poucos cliques, com uma interface intuitiva e pesquisa avançada.
+* **Variedade:** Uma vasta gama de veículos para todos os gostos e necessidades, desde carros compactos até SUVs espaçosos.
+* **Segurança:** Todos os nossos carros são inspecionados regularmente e segurados para garantir sua tranquilidade.
+* **Transparência:** Preços justos e transparentes, sem taxas ocultas.
+* **Atendimento:** Nossa equipe dedicada está sempre pronta para auxiliá-lo em qualquer dúvida ou necessidade.
 
-    <section class="contact">
-      <div class="container">
-        <h2>Fale Conosco</h2>
-        <p>Tem alguma dúvida? Entre em contato com nossa equipe.</p>
-        <form>
-          <input type="text" placeholder="Nome">
-          <input type="email" placeholder="Email">
-          <textarea placeholder="Mensagem"></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
-    </section>
-  </main>
+**Recursos:**
 
-  <footer>
-    <div class="container">
-      <p>© 2023 Keeve. Todos os direitos reservados.</p>
-      <ul>
-        <li><a href="#">Termos de Uso</a></li>
-        <li><a href="#">Política de Privacidade</a></li>
-      </ul>
-    </div>
-  </footer>
-</body>
-</html>
+* **Pesquisa avançada:** Encontre o carro perfeito filtrando por modelo, categoria, data e localização.
+* **Informações completas:** Acesse fotos, especificações e recursos de cada veículo com detalhes.
+* **Comparação de preços:** Compare diferentes modelos e ofertas para encontrar a melhor opção.
+* **Reserva online:** Reserve seu carro em tempo real com confirmação instantânea.
+* **Gestão de perfil:** Gerencie suas reservas, atualize seus dados pessoais e acesse seu histórico.
+
+**Comece sua aventura com Keeve!**
+
+* **Visite nosso site:** [INSIRA O ENDEREÇO DO WEBSITE AQUI]
+* **Entre em contato:** [INSIRA O NÚMERO DE TELEFONE OU EMAIL AQUI]
+* **Baixe nosso aplicativo:** [INSIRA O LINK PARA O APP STORE/GOOGLE PLAY AQUI]
+
+**Keeve: Aluguel de carros sem complicação.**
+
+
+**Contribuições:**
+
+Este repositório está em desenvolvimento e aberto a contribuições. Sinta-se à vontade para abrir issues, enviar pull requests ou entrar em contato conosco para discutir ideias.
+
+**Licença:**
+
+Este projeto está licenciado sob a licença [INSIRA A LICENÇA AQUI] - consulte o arquivo LICENSE para mais detalhes.
