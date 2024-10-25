@@ -42,7 +42,7 @@ const Login = () => {
 
       <div className={styles.formContainer}>
         <div className={styles.formContent}>
-          <h2 className="text-6xl font-bold text-red-500 mb-12 text-center">
+          <h2 className="text-5xl font-bold text-red-500 mb-12 text-center">
             LOGIN
           </h2>
           {isLoggedIn ? (
@@ -67,7 +67,7 @@ const Login = () => {
                 <div className="relative">
                   <input
                     type="email"
-                    className="w-full pl-10 pr-4 py-3 border rounded-md focus:outline-none focus:border-red-500"
+                    className="w-full pl-8 pr-1 py-2.5 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent shadow-sm"
                     placeholder="E-mail"
                     required
                   />
@@ -89,7 +89,7 @@ const Login = () => {
                 <div className="relative">
                   <input
                     type="password"
-                    className="w-full pl-10 pr-4 py-3 border rounded-md focus:outline-none focus:border-red-500"
+                    className="w-full pl-8 pr-1 py-2.5 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent shadow-sm"
                     placeholder="Senha"
                     required
                   />
@@ -111,15 +111,15 @@ const Login = () => {
               </div>
 
               <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
-                <GoogleLogin
-                  onSuccess={handleGoogleSuccess}
-                  onError={handleGoogleError}
-                  theme="outline"
-                  size="large"
-                  width="100%"
-                  text="continue_with"
-                  shape="rectangular"
-                />
+                  <GoogleLogin
+                    onSuccess={handleGoogleSuccess}
+                    onError={handleGoogleError}
+                    theme="outline"
+                    size="large"
+                    width="100%"
+                    text="continue_with"
+                    shape="rectangular"
+                  />
               </GoogleOAuthProvider>
 
               <button
