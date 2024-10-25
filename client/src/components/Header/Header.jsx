@@ -18,12 +18,12 @@ import logo from "../../assets/logo.png";
 // }
 
 const Header = () => {
-  const navigation = [{ componente: "/users", name: "Usuários" }];
+  // const navigation = [{ componente: "/users", name: "Usuários" }];
   return (
     <div className={styles.container}>
       <nav
         className="navbar navbar-expand-md top-0 container-fluid px-5"
-        style={{ background: "#160B28" }}
+        style={{ background: "#EF4733" }}
       >
         {/* 
             data-bs-toggle="collapse": ativa a função de Colapso do Bootstrap, que mostra ou esconde um elemento (data-bs-target)
@@ -65,7 +65,7 @@ const Header = () => {
           />
 
           {/* Body no Mobile e Links do Nav */}
-          <div className="offcanvas-body nav-underline mx-3 d-md-inline-flex justify-content-center">
+          {/* <div className="offcanvas-body nav-underline mx-3 d-md-inline-flex justify-content-center">
             {navigation.map((nav) => (
               <Link
                 className="nav-link nav-item my-3 my-md-none mx-md-3"
@@ -75,14 +75,15 @@ const Header = () => {
                 {nav.name}
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* 
             Dropdown na direita em desktop
           */}
         <div className="d-none d-md-inline-flex">
-          <h5 className="my-auto ms-5 me-3">Nome do Administrador</h5>
+          {/* <h5 className="my-auto ms-5 me-3">Nome do Administrador</h5> */}
+          <button>Entrar</button>
         </div>
       </nav>
     </div>

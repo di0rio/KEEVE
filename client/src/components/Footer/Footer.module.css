@@ -1,0 +1,29 @@
+.Logo{
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+}
+
+.LinksItens{
+    display: flex;
+    gap: 5px;
+}
+
+.Links {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.Links:hover {
+    /* color: #f8f3e3; */
+    color: bisque;
+    transition: 0.4s
+}
+
+.Escrito{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
