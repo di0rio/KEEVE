@@ -28,7 +28,7 @@ const Header = () => {
           <img src={logo} alt="" />
         </a>
         <div className={styles.ContBtn}>
-          <div>
+          <div className={styles.Toogle}>
             <ToogleTheme />
           </div>
           <div>
