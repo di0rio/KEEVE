@@ -29,7 +29,7 @@ namespace ApiKeeve.Controllers
         }
 
 		// GET: api/VeiculosDisps
-		[HttpGet("VeiculosDisponives/{VeiculosDisponiveis}")]
+		[HttpGet("/VeiculosDisponives")]
 		public async Task<ActionResult<IEnumerable<VeiculosDisp>>> GetVeiculosDispPatio()
 		{
             var listaPatios = await _context.Patio.ToListAsync();
