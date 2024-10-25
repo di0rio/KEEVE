@@ -68,10 +68,10 @@ namespace ApiKeeve.Controllers
 			return veiculo;
 		}
 
-		[HttpGet("Trasmissão/{trans}")]
-		public async Task<ActionResult<Veiculo>> GetVeiculoByTrasmissão(string trans)
+		[HttpGet("Transmissão/{transmissao}")]
+		public async Task<ActionResult<Veiculo>> GetVeiculoByTransmissao(string transmissao)
 		{
-			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Trasmissão == trans);
+			var veiculo = await _context.Veiculo.FirstOrDefaultAsync(c => c.Trasmissao == transmissao);
 
 			if (veiculo == null)
 			{
