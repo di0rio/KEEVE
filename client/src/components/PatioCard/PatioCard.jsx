@@ -1,18 +1,23 @@
 import styles from "./PatioCard.module.css";
+import ButtonOrange from "../ButtonOrange/ButtonOrange";
 
-import ButtonOrange from "../ButtonOrange/ButtonOrange"
-
-const PatioCard = ({ city, availableCars }) => {
-
+const PatioCard = ({ patio, cap }) => {
   return (
-    <div className="bg-[#f8f3e3] p-12 shadow-md relative">
-      <div className="absolute top-6 right-6">
+    <div className={styles.Card}>
+      <div className={styles.Linha1}>
+        <p>{patio}</p>
+        <div className={styles.Bolas}>
+          <div className={styles.Bola}></div>
+          <div className={styles.Bola}></div>
+          <div className={styles.Bola}></div>
+        </div>
       </div>
-      <div className="space-y-4">
-        <h3 className="text-gray-800 text-lg font-medium">{city}</h3>
-        <p className="text-gray-700">Carros disponíveis: {availableCars}</p>
-        <ButtonOrange>Visualizar</ButtonOrange>
+      <div className={styles.Linha2}>
+        <p>Veículos disponíveis:{cap}</p>
       </div>
+      <ButtonOrange>
+        <p>Vizualizar</p>
+      </ButtonOrange>
     </div>
   );
 };

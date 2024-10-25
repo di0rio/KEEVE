@@ -55,6 +55,19 @@ namespace ApiKeeve.Controllers
 			return patio;
 		}
 
+		[HttpGet("Disponivel/{patio}")]
+		public async Task<ActionResult<int>> GetVagasByCarros(Guid patio)
+		{
+			// Busca os veículos disponíveis no pátio informado.
+			var veiculos = await _context.Veiculo
+										 .Where(c => c.PatioId == patio) // Filtrando apenas disponíveis
+										 .ToListAsync();
+
+			// Retorna a quantidade de veículos disponíveis.
+			return Ok(veiculos.Count);
+		}
+
+
 		[HttpGet("Capacidade/{capacidade}")]
 		public async Task<ActionResult<Patio>> GetPatioByCapacidade(int cap)
 		{

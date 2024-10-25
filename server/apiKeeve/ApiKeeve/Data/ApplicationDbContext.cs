@@ -25,6 +25,8 @@ public DbSet<ApiKeeve.Models.Patio> Patio { get; set; } = default!;
 
 public DbSet<ApiKeeve.Models.Veiculo> Veiculo { get; set; } = default!;
 
+public DbSet<ApiKeeve.Models.VeiculosDisp> VeiculosDisp { get; set; } = default!;
+
 
 
 }

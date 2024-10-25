@@ -7,23 +7,14 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure CORS for development or specific origins (adjust as needed)
-builder.Services.AddCors(options =>
-{
-	if (builder.Environment.IsDevelopment())
-	{
-		options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-	}
-	else
-	{
-		// Configure specific origins for production
-		options.AddPolicy("AllowSpecificOrigins", policy =>
-		{
-			policy.WithOrigins("https://your-allowed-origin.com", "https://another-allowed-origin.com")
-				.AllowAnyMethod()
-				.AllowAnyHeader();
-		});
-	}
+// Adicionar e configurar o CORS (Cross-Origim Resource Sharing)
+builder.Services.AddCors(options => {
+	options.AddPolicy("AllowAll", builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });
+});
+
+// Adicionar e configurar o CORS (Cross-Origim Resource Sharing)
+builder.Services.AddCors(options => {
+	options.AddPolicy("AllowAll", builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });
 });
 
 // Register controllers
@@ -60,5 +51,10 @@ app.UseHttpsRedirection();
 // app.UseAuthorization();
 
 app.MapControllers();
+// Permitir autenticação e autorização a partir de qualquer origem
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.UseCors("AllowAll");
 
 app.Run();
+

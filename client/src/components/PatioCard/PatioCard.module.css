@@ -1,0 +1,41 @@
+.Card {
+  width: 100%;
+  height: 180px;
+
+  padding: 1200px 0px;
+  background-color: #f5eed3;
+  padding: 20px;
+}
+
+.Linha1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Linha2 {
+  margin-bottom: 6%;
+}
+
+.Bolas {
+  display: flex;
+  gap: 8px;
+}
+
+.Bola {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: aliceblue;
+}
+
+/* @media (min-width: 1200px) and (max-width: 1440px){
+.Card{
+    width: 550px;
+}
+}
+
+@media (min-width: 800px) and (max-width: 1200px){
+    .Card{
+        width: 400px;
+    }
+    } */
