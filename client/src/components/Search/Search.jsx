@@ -10,7 +10,7 @@ const Search = ({ value, placeholder = "Pesquise aqui pela cidade" }) => {
         type="text"
         value={value}
         placeholder={placeholder}
-        className="w-full pl-8 pr-1 py-2.5 text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent shadow-sm"
+        className="w-full pl-8 pr-1 py-2.5 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent shadow-sm"
       />
     </div>
   );
