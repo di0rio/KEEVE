@@ -9,7 +9,6 @@ import PatioCard from "../../components/PatioCard/PatioCard";
 
 const Home = () => {
   const [patios, setPatios] = useState([]);
-  const [Vdisp, setVdisp] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,32 +28,11 @@ const Home = () => {
 
     fetchPatios();
   }, []);
+
   const filteredPatios = patios.filter((patio) => {
     const searchValue = searchTerm.toLowerCase();
     return patio.nome.toLowerCase().includes(searchValue);
   });
-
-  // useEffect(() => {
-  //   const fetchVdisp = async () => {
-  //     try {
-  //       const response = await axios.get('https://localhost:7222/veiculosDisponiveis');
-  //       setPatios(response.data);
-  //     } catch (error) {
-  //       setError("Erro ao carregar dados.");
-  //       console.error(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchVdisp();
-  // }, []);
-
-  // const filteredVdisp = Vdisp.filter((disp) => {
-  //   const searchValue = searchTerm.toLowerCase();
-  //   return Vdisp.qntd.includes(searchValue);
-  // });
-
 
   if (loading) {
     return <div>Carregando...</div>;
@@ -77,12 +55,11 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              {filteredPatios.map((patio, cap, disp) => (
+              {filteredPatios.map((patio, cap) => (
                 <PatioCard
                   key={patio.patioId}
                   patio={patio.nome}
                   cap={patio.capacidade}
-                  disp={Vdisp.qntd}
                 />
               ))}
             </div>
