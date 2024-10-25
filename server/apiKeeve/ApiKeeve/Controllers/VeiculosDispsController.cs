@@ -29,7 +29,7 @@ namespace ApiKeeve.Controllers
         }
 
 		// GET: api/VeiculosDisps
-		[HttpGet("/veiculosDisponiveis")]
+		[HttpGet("VeiculosDisponives/{VeiculosDisponiveis}")]
 		public async Task<ActionResult<IEnumerable<VeiculosDisp>>> GetVeiculosDispPatio()
 		{
             var listaPatios = await _context.Patio.ToListAsync();
@@ -74,17 +74,6 @@ namespace ApiKeeve.Controllers
             return veiculosDisp;
         }
 
-		[HttpGet("VeiculosDipsPatio/{vdp}")]
-		public async Task<ActionResult<int>> GetVagasByCarros(Guid patio)
-		{
-			// Busca os veículos disponíveis no pátio informado.
-			var veiculos = await _context.Veiculo
-										 .Where(c => c.PatioId == patio) // Filtrando apenas disponíveis
-										 .ToListAsync();
-
-			// Retorna a quantidade de veículos disponíveis.
-			return Ok(veiculos.Count);
-		}
 
 		// PUT: api/VeiculosDisps/5
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
