@@ -1,0 +1,4 @@
+.formContainer {
+  background-color: var(--form-background);
+  min-height: 100vh;
+}

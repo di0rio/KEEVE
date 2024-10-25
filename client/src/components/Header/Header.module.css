@@ -6,6 +6,12 @@
   flex-direction: row;
 }
 
+.ContBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
 .Nav {
   display: flex;
   padding: 7px;

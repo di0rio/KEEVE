@@ -1,7 +1,5 @@
-import React from "react";
-import "./App.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "../components/ThemeContext/ThemeContext.jsx";
 
 import Login from "../routes/Login/Login.jsx";
 import Home from "../routes/Home/Home.jsx";
@@ -13,13 +11,15 @@ import "bootstrap/dist/js/bootstrap.js";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

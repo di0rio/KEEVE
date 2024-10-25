@@ -1,0 +1,22 @@
+.Img {
+  color: white;
+}
+
+button {
+  color: white;
+}
+
+.Link {
+  text-decoration: none;
+}
+
+button:hover {
+  border-color: #f8f3e3;
+  color: #f8f3e3;
+  transition: 0.4s;
+}
+
+.Img:hover {
+  color: #f8f3e3;
+  transition: 0.4s;
+}

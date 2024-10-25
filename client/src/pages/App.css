@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Tema claro (padrão) */
+  --background-primary: #ffffff;
+  --background-secondary: #f5f5f5;
+  --text-primary: #ffff;
+  --text-secondary: #666666;
+  --input-background: #ffffff;
+  --input-border: #e0e0e0;
+  --red-primary: #ef4733;
+  --sidebar-background: #ef4733;
+  --form-background: #ffffff;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.5);
+  --switch-bg-url: url(../assets/sun.svg);
+}
+
+[data-theme="dark"] {
+  /* Tema escuro */
+  --background-primary: #1a1a1a;
+  --background-secondary: #565656;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --input-background: #333333;
+  --input-border: #565656;
+  --red-primary: #ef4733;
+  --sidebar-background: #ef4733;
+  --form-background: #565656;
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.5);
+  --switch-bg-url: url(../assets/moon.svg);
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo para inputs */
+input {
+  background-color: var(--input-background);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Estilo para o formulário de login/cadastro */
+.form-container {
+  background-color: var(--form-background);
+  transition: background-color 0.3s;
+}
