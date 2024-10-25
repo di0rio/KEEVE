@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import logo from "../../assets/logo.png";
 
+import styles from "./Login.module.css";
+
 const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,8 +27,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-900">
-      <div className="w-1/2 bg-red-500 p-12 flex flex-col justify-center items-center text-white">
+    <div className={styles.container}>
+      <div className={styles.sidebar}>
         <div className="text-center">
           <h2 className="text-2xl mb-4">Bem-vindo ao</h2>
           <img src={logo} alt="Logo KEEVE" />
@@ -38,9 +40,11 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="w-1/2 bg-white p-12 flex flex-col justify-center items-center">
-        <div className="w-full max-w-md">
-        <h2 className="text-6xl font-bold text-red-500 mb-12 text-center">LOGIN</h2>
+      <div className={styles.formContainer}>
+        <div className={styles.formContent}>
+          <h2 className="text-5xl font-bold text-red-500 mb-12 text-center">
+            LOGIN
+          </h2>
           {isLoggedIn ? (
             <div className="text-center space-y-4">
               <img
@@ -63,7 +67,7 @@ const Login = () => {
                 <div className="relative">
                   <input
                     type="email"
-                    className="w-full pl-10 pr-4 py-3 border rounded-md focus:outline-none focus:border-red-500"
+                    className="w-full pl-8 pr-1 py-2.5 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent shadow-sm"
                     placeholder="E-mail"
                     required
                   />
@@ -85,7 +89,7 @@ const Login = () => {
                 <div className="relative">
                   <input
                     type="password"
-                    className="w-full pl-10 pr-4 py-3 border rounded-md focus:outline-none focus:border-red-500"
+                    className="w-full pl-8 pr-1 py-2.5 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent shadow-sm"
                     placeholder="Senha"
                     required
                   />
@@ -107,15 +111,15 @@ const Login = () => {
               </div>
 
               <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
-                <GoogleLogin
-                  onSuccess={handleGoogleSuccess}
-                  onError={handleGoogleError}
-                  theme="outline"
-                  size="large"
-                  width="100%"
-                  text="continue_with"
-                  shape="rectangular"
-                />
+                  <GoogleLogin
+                    onSuccess={handleGoogleSuccess}
+                    onError={handleGoogleError}
+                    theme="outline"
+                    size="large"
+                    width="100%"
+                    text="continue_with"
+                    shape="rectangular"
+                  />
               </GoogleOAuthProvider>
 
               <button
@@ -128,7 +132,7 @@ const Login = () => {
           )}
 
           <div className="mt-4 text-center text-sm">
-            <Link to="/cadastro">
+            <Link className={styles.Link} to="/cadastro">
               <span className="text-red-500 hover:underline cursor-pointer">
                 Não tem conta? Cadastre-se
               </span>

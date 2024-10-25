@@ -45,7 +45,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div className="min-h-screen bg-white">
+      <div className={styles.formContainer}>
         <div className="container mx-auto px-6 py-8">
           <div className="space-y-8">
             {/* Header Section */}

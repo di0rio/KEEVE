@@ -6,6 +6,16 @@
   flex-direction: row;
 }
 
+.ContBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.Toogle{
+  padding: 5px 0px 5px 0px;
+}
+
 .Nav {
   display: flex;
   padding: 7px;
