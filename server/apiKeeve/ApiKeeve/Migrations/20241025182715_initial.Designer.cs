@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiKeeve.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241024185010_Initial")]
-    partial class Initial
+    [Migration("20241025182715_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,14 +25,46 @@ namespace ApiKeeve.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ApiKeeve.Models.Cliente", b =>
+            modelBuilder.Entity("ApiKeeve.Models.Aluguel", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("AluguelId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CPF")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ClienteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("FimAluguel")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("InicioAluguel")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Localizacao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("VeiculoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AluguelId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("VeiculoId");
+
+                    b.ToTable("Aluguel");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.Cliente", b =>
+                {
+                    b.Property<Guid>("ClienteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -50,9 +82,107 @@ namespace ApiKeeve.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ClienteId");
 
                     b.ToTable("Clientes", (string)null);
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.HistoricoAluguel", b =>
+                {
+                    b.Property<Guid>("HistoricoAluguelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AluguelId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataEvento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Evento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("HistoricoAluguelId");
+
+                    b.HasIndex("AluguelId");
+
+                    b.ToTable("HistoricoAluguel");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.Patio", b =>
+                {
+                    b.Property<Guid>("PatioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Capacidade")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PatioId");
+
+                    b.ToTable("Patio");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.Veiculo", b =>
+                {
+                    b.Property<Guid>("VeiculoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Capacidade")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PatioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Portas")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Trasmissao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VeiculoId");
+
+                    b.HasIndex("PatioId");
+
+                    b.ToTable("Veiculo");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.VeiculosDisp", b =>
+                {
+                    b.Property<Guid>("VeiculosDispId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PatioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Qntd")
+                        .HasColumnType("int");
+
+                    b.HasKey("VeiculosDispId");
+
+                    b.HasIndex("PatioId");
+
+                    b.ToTable("VeiculosDisp");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -253,6 +383,58 @@ namespace ApiKeeve.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ApiKeeve.Models.Aluguel", b =>
+                {
+                    b.HasOne("ApiKeeve.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ApiKeeve.Models.Veiculo", "Veiculo")
+                        .WithMany()
+                        .HasForeignKey("VeiculoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Veiculo");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.HistoricoAluguel", b =>
+                {
+                    b.HasOne("ApiKeeve.Models.Aluguel", "Aluguel")
+                        .WithMany()
+                        .HasForeignKey("AluguelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Aluguel");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.Veiculo", b =>
+                {
+                    b.HasOne("ApiKeeve.Models.Patio", "Patio")
+                        .WithMany("Veiculos")
+                        .HasForeignKey("PatioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patio");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.VeiculosDisp", b =>
+                {
+                    b.HasOne("ApiKeeve.Models.Patio", "Patio")
+                        .WithMany()
+                        .HasForeignKey("PatioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patio");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -302,6 +484,11 @@ namespace ApiKeeve.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.Patio", b =>
+                {
+                    b.Navigation("Veiculos");
                 });
 #pragma warning restore 612, 618
         }

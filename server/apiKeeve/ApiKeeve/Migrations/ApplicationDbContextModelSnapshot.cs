@@ -163,6 +163,25 @@ namespace ApiKeeve.Migrations
                     b.ToTable("Veiculo");
                 });
 
+            modelBuilder.Entity("ApiKeeve.Models.VeiculosDisp", b =>
+                {
+                    b.Property<Guid>("VeiculosDispId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PatioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Qntd")
+                        .HasColumnType("int");
+
+                    b.HasKey("VeiculosDispId");
+
+                    b.HasIndex("PatioId");
+
+                    b.ToTable("VeiculosDisp");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -395,6 +414,17 @@ namespace ApiKeeve.Migrations
                 {
                     b.HasOne("ApiKeeve.Models.Patio", "Patio")
                         .WithMany("Veiculos")
+                        .HasForeignKey("PatioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patio");
+                });
+
+            modelBuilder.Entity("ApiKeeve.Models.VeiculosDisp", b =>
+                {
+                    b.HasOne("ApiKeeve.Models.Patio", "Patio")
+                        .WithMany()
                         .HasForeignKey("PatioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
